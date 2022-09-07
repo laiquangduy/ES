@@ -41,33 +41,37 @@
 
 // Ex 2
 var x = 2,
-  fns = [];
-
+    fns = [];
 (function () {
-  var x = 5;
-
-  for (var i = 0; i < x; i++) {
-    //
-  }
+    var x = 5;
+    for (var i = 0; i < x; i++) {
+        fns[i] = () => i-1;
+    }
+    return fns;
 })();
-
-//DO NOT MODIFY BELOW CODE
+// DO NOT MODIFY BELOW CODE
 console.log(x * 2 === fns[x * 2]());
-//true
+console.log(x * 2);
+console.log(fns[x * 2]());
 
 // EX 3
 
-function foo() {}
+function foo() { 
+  var a1 = [2, 4];
+  var a2 = [6, 8, 10, 12];
+  a1.pop();
+  a2.shift();
+  return [...a1, ...a2];
+}
 
 function bar() {
   var a1 = [2, 4];
   var a2 = [6, 8, 10, 12];
-
   return foo();
 }
-
-console.log(bar().join("") === "281012");
-
+// DO NOT MODIFY BELOW CODE
+console.log(bar().join('') === '281012');
+// true
 //Ex 4
 function ajax(url, cb) {
   cb({
